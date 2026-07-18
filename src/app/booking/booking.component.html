@@ -1,0 +1,40 @@
+@let summary = bookingState.summary();
+
+<div class="booking">
+  <div class="booking-content">
+    <h1>Agendamento</h1>
+    <small>Escolha uma opção</small>
+    <router-outlet />
+  </div>
+
+  <div class="booking-summary">
+    <h2>Resumo</h2>
+    <small>Confirme os dados do agendamento</small>
+    <div class="resume">
+      <div class="provider-name">
+        <h3>Prestador</h3>
+        {{ summary.providerName ?? '—' }}
+      </div>
+      <div class="service-name">
+        <h3>Serviço</h3>
+        {{ summary.serviceName ?? '—' }}
+      </div>
+      <div class="professional-name">
+        <h3>Profissional</h3>
+        {{ summary.professionalName ?? '—' }}
+      </div>
+      <div class="selected-date">
+        <h3>Data</h3>
+        {{ summary.date ?? '—' }}
+      </div>
+      <div class="selected-time">
+        <h3>Hora</h3>
+        {{ summary.time ?? '—' }}
+      </div>
+
+      <input type="submit" value="Confirmar" (click)="confirmBooking()">
+    </div>
+  </div>
+</div>
+
+
