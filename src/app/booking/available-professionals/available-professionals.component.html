@@ -1,1 +1,45 @@
-<h1>Profissionais</h1>
+<h3>Profissionais</h3>
+
+<small class="small-professionals">
+  Disponíveis para o serviço selecionado
+</small>
+
+<div class="professionals">
+  <label class="radio-option">
+    <input
+      type="radio"
+      name="professional"
+      value=""
+      [checked]="selectedProfessionalId() === null"
+      (change)="selectNoPreference()"
+    >
+
+    Sem preferência
+  </label>
+
+  @if (professionals$ | async; as professionals) {
+    @for (
+      professional of professionals;
+      track professional.id
+      ) {
+      <label class="radio-option">
+        <input
+          type="radio"
+          name="professional"
+          [value]="professional.id"
+          [checked]="
+            selectedProfessionalId() === professional.id
+          "
+          (change)="selectProfessional(professional)"
+        >
+
+        <span>
+          {{ professional.name }}
+          <small>{{ professional.role }}</small>
+        </span>
+      </label>
+    } @empty {
+      <p>Nenhum profissional disponível.</p>
+    }
+  }
+</div>
