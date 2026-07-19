@@ -2,9 +2,30 @@
 
 <div class="booking">
   <div class="booking-content">
-    <h1>Agendamento</h1>
-    <small>Escolha uma opção</small>
-    <router-outlet />
+    <header class="selection-header">
+      <h1>Agendamento</h1>
+      <p>Escolha uma opção</p>
+    </header>
+
+    <div class="booking-steps">
+      @for (step of steps; track step.id) {
+        <div
+          class="step"
+          [class.step-active]="step.id === currentStep()"
+        >
+          {{ step.id }}
+        </div>
+      }
+    </div>
+
+    <main class="step-content">
+      <router-outlet />
+    </main>
+
+    <div class="steps-actions">
+      <button type="button" [disabled]="currentStep() <= 1" (click)="back()">Voltar</button>
+      <button type="button" [disabled]="!bookingState.summary().serviceId" (click)="next()">Avançar</button>
+    </div>
   </div>
 
   <div class="booking-summary">

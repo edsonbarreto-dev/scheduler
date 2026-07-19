@@ -24,11 +24,11 @@ export const BOOKING_ROUTES: Routes = [
         children: [
           {
             path: '',
-            redirectTo: 'available-professionals',
+            redirectTo: 'professional',
             pathMatch: 'full'
           },
           {
-            path: 'available-professionals',
+            path: 'professional',
             loadComponent: () =>
               import('./available-professionals/available-professionals.component')
                 .then(c => c.AvailableProfessionalsComponent)

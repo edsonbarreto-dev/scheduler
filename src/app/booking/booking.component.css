@@ -12,14 +12,62 @@
 }
 
 .booking-content {
-  min-width: 2em;
-  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  min-width: 0;
+  min-height: 100dvh;
+  padding: 4rem;
 }
+
+
 
 .booking-summary .resume {
   display: flex;
   flex-direction: column;
   gap: 2em;
+}
+
+.selection-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking-steps {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid #666;
+  border-radius: 50%;
+  color: #999;
+}
+
+.step-active {
+  color: #ff0000;
+  background-color: #505050;
+  border-color: #ff0000;
+  font-weight: 700;
+}
+
+.steps-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-top: auto;
+}
+
+.steps-actions button {
+  min-width: 11rem;
 }
 
 @media (max-width: 768px) {
@@ -36,4 +84,15 @@
   .booking-content {
     padding: 2em;
   }
+
+  .booking-steps {
+    gap: 3.1rem;
+  }
+
+  .step {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
+
+

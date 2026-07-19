@@ -1,6 +1,9 @@
 import { Injectable, signal } from '@angular/core';
 
 export interface BookingSummary {
+  providerId: string | null;
+  serviceId: string | null;
+  professionalId: string | null;
   providerName: string | null;
   serviceName: string | null;
   professionalName: string | null;
@@ -11,6 +14,9 @@ export interface BookingSummary {
 @Injectable()
 export class BookingState {
   private readonly _summary = signal<BookingSummary>({
+    providerId: null,
+    serviceId: null,
+    professionalId: null,
     providerName: null,
     serviceName: null,
     professionalName: null,
