@@ -1,0 +1,14 @@
+.hours {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+  gap: 0.75rem;
+}
+
+.small-hours {
+  font-size: 1.1em;
+}
+
+.radio-option span {
+  display: grid;
+  gap: 0.25rem;
+}

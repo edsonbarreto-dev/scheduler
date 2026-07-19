@@ -1,1 +1,33 @@
-<h1>Datas disponíveis</h1>
+<h3>Datas</h3>
+
+<small class="small-dates">
+  Escolha uma data disponível
+</small>
+
+<div class="dates">
+  @if (dates$ | async; as dates) {
+    @for (
+      availableDate of dates;
+      track availableDate.date
+      ) {
+      <label class="radio-option">
+        <input type="radio" name="date"
+               [value]="availableDate.date"
+               [checked]=" selectedDate() === availableDate.date "
+               (change)="selectDate(availableDate)">
+
+        <span>
+          <strong>
+            {{ formatWeekday(availableDate.date) }}
+          </strong>
+
+          <small>
+            {{ formatDate(availableDate.date) }}
+          </small>
+        </span>
+      </label>
+    } @empty {
+      <p>Nenhuma data disponível.</p>
+    }
+  }
+</div>

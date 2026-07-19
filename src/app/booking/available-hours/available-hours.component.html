@@ -1,1 +1,40 @@
-<h1>Horas disponíveis</h1>
+<h3>Horários</h3>
+
+<small class="small-hours">
+  Escolha um horário disponível
+</small>
+
+<div class="hours">
+  @if (times$ | async; as times) {
+    @for (
+      availableTime of times;
+      track availableTime.start
+      ) {
+      <label class="radio-option">
+        <input
+          type="radio"
+          name="time"
+          [value]="availableTime.start"
+          [checked]="
+            selectedTime() === availableTime.start
+          "
+          (change)="selectTime(availableTime)"
+        >
+
+        <span>
+          <strong>
+            {{ availableTime.start }}
+          </strong>
+
+          <small>
+            até {{ availableTime.end }}
+          </small>
+        </span>
+      </label>
+    } @empty {
+      <p>
+        Nenhum horário disponível para esta data.
+      </p>
+    }
+  }
+</div>
