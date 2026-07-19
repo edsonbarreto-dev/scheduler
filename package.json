@@ -2,11 +2,11 @@
   "name": "scheduler",
   "version": "0.0.0",
   "scripts": {
-    "ng": "../scheduler-/node_modules/.bin/ng",
-    "start": "../scheduler-/node_modules/.bin/ng serve",
-    "build": "../scheduler-/node_modules/.bin/ng build",
-    "watch": "../scheduler-/node_modules/.bin/ng build --watch --configuration development",
-    "test": "../scheduler-/node_modules/.bin/ng test"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
