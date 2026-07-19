@@ -1,7 +1,20 @@
 <h3>Serviços</h3>
+<small class="small-services">Disponíveis para este prestador</small>
 <div class="services">
-  <div class="service">
-    <input type="radio" name="service">
-    <label>SEVICE</label>
-  </div>
+    @if (offerings$ | async; as offerings) {
+      @for (offering of offerings; track offering.id) {
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="service"
+            [value]="offering.id"
+            [checked]="selectedServiceId() === offering.id"
+            (change)="selectService(offering)"
+          >
+          {{ offering.name }}
+        </label>
+      } @empty {
+        <p>Nenhum serviço disponível.</p>
+      }
+    }
 </div>
